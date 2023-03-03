@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta charset="utf-8">
+        <title>Actualizacion de Precio</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/formulario.css">
+        
+    </head>
+    <body>
+
+
+        <h2> Modificar Precio</h2>
+        
+        <form class="formulario"th:action="@{/precio/modificar/__${precios.id}__}" method="Post">
+
+
+            <input hidden type="text" name="id" th:value="${precios.id}">
+            <label th:value="${precios.zona}"></label>
+            <input hidden type="text" name="zona" th:value="${precios.zona}">
+          
+
+
+            <label>Importe</label>
+            <input type="number" step="any" name="importe" th:value="${precios.precio}">
+         
+            </br>
+            <button type="submit" class="btn btn-primary mt-3 botones">Actualizar</button>
+        </form>
+           <section class=" text-center container">
+                <div class="row mt-3">
+                    <div class="divVolver">
+                        <a th:href="@{/inicio}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+                    </div>
+                </div>
+            </section>
+        <!--
+         <p th:if="${error!=null}" th:value="${error}"></p>
+        
+             <footer th:replace="/fragments/footer :: footer"></footer>
+        -->
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </body>
+</html> 

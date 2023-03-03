@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>Reporte Facturacion</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="stylesheet" href="/css/formulario.css">
+    </head>
+    <body>
+
+
+        <div class="container-fluid m-5 contenedor">
+
+            <form class="formulario" >
+                <input hidden th:value= "${id}" name="id">
+
+                <div class="form-group my-3">
+                    <h2 class="mb-2">Reporte Facturacion</h2> </br>
+                    <label hidden class="mb-2">Id</label> 
+                    <input hidden th:value="${factura.id}" type="text" class="form-control" name="id">
+                </div>
+                <div class="form-group my-3">
+                    <label class="mb-2">Mes</label> 
+                    <input  disabled="" th:value="${factura.mes}" type="number" class="form-control" name="mes" >
+                </div>
+                <div class="form-group my-3">
+                    <label class="mb-2">Año</label> 
+                    <input  disabled="" th:value="${factura.anio}" type="number" class="form-control" name="anio" >
+                </div>
+
+                <div class="form-group my-3">
+                    <label class="mb-2">cantidad de Cajas</label> 
+                    <input th:value="${factura.cantidad}" type="number" class="form-control" name="cantidad" >
+                </div>
+                <div class="form-group my-3">
+                    <label class="mb-2">Importe de Cajas</label> 
+                    <input  disabled="" th:value="${factura.importe}"  step="any" type="number" class="form-control" name="importe" >
+                </div>
+                <div class="form-group my-3">
+                    <label class="mb-2">Gastos</label> 
+                    <input  disabled="" th:value="${factura.gastos}"  step="any" type="number" class="form-control" name="gastos" >
+                </div>
+                <div class="form-group my-3">
+                    <label class="mb-2">Viajes</label> 
+                    <input  disabled="" th:value="${factura.viajes}"  step="any" type="number" class="form-control" name="viajes" >
+                </div>
+                <div class="form-group my-3">
+                    <label class="mb-2">Total</label> 
+                    <input  disabled="" th:value="${factura.total}"  step="any" type="number" class="form-control" name="total" >
+                </div>
+
+            </form>
+
+            <div th:if="${exito}!=null" class="card text-white bg-success mb-3 mt-3 mensajeExito" >
+                <div class="card-body">
+                    <h5 class="card-title">Exito ð</h5>
+                    <p class="card-text" th:text="${exito}"></p>
+                </div>
+            </div>
+
+            <section class=" text-center container">
+                <div class="row mt-3">
+                    <div class="divVolver">
+                        <a th:href="@{/inicio}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+                    </div>
+                </div>
+                 <div class="row mt-3">
+                    <div class="divVolver">
+                        <a onclick="imprimir()" class="btn btn-secondary my-2 botonVolver botones">imprimir</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+<script LANGUAGE="JavaScript">
+function imprimir() {
+
+window.print();
+}
+</script>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    </body>
+</html>
